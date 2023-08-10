@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import MyCom from './MyCom';
+import MyComLifeCycle from './MyComLifeCycle';
+import MyComNode_ from './MyComNode_';
+import MyComNode from './MyComNode';
 import MyComJsxEvent_ from './MyComJsxEvent_';
 import MyComJsxEvent from './MyComJsxEvent';
 import MyComSetState_ from './MyComSetState_';
@@ -23,6 +26,8 @@ root.render(
   <React.StrictMode>
     <App/>
     <MyCom />
+    <MyComNode_ />
+    <MyComNode />
     <MyComJsxEvent_ />
     <MyComJsxEvent />
     <MyComSetState_ />

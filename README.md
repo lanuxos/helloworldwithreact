@@ -408,4 +408,76 @@ class MyComJsxEvent_ extends React.Component {
 }
 export default MyComJsxEvent_
 ```
-# 
+- node finding
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class MyComNode extends React.Component {
+    change(e) {
+        const node = ReactDOM.findDOMNode(this.refs.display);
+        const y = e.target.value;
+        node.innerHTML = `Age ${y} year(s) old.`
+    }
+    render() {
+        return <div>
+            <p ref='display'>Age 18 years old</p>
+            <input type='range' min='1' max='100' onChange={this.change.bind(this)} />
+        </div>;
+    }
+}
+export default MyComNode
+```
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class MyComNode_ extends React.Component {
+    change(e) {
+        const nodeP = document.getElementById('display')
+        const node = ReactDOM.findDOMNode(nodeP)
+        const y = e.target.value;
+        node.innerHTML = `Age ${y} year(s) old.`
+    }
+    render() {
+        return <div>
+            <p id='display'>Age_ 1 years old</p>
+            <input type='range' min='1' max='100' onChange={this.change.bind(this)} />
+        </div>;
+    }
+}
+export default MyComNode_
+```
+- react component lifecycle
+    - Mounting [add nodes to DOM]
+    - Updating [update nodes in DOM]
+    - Unmounting [remove nodes from DOM]
+    - Error handling [check if source code run w/o bugs]
+```
+import react from 'react'
+
+class MyComLifeCycle extends react.Component {
+    componentWillMount() {
+        console.log('Component will mount');
+    }
+    componentDidMount() {
+        console.log('Component did mount');
+    }
+    componentWillUnmount() {
+        console.log('Component will unmount');
+    }
+    render() {
+        return <p>React Component Life Cycle</p>
+    }
+}
+export default MyComLifeCycle
+```
+```
+import react from 'react';
+import reactDom from 'react-dom';
+import MyComLifeCycle from './MyComLifeCycle'
+reactDom.render(<MyComLifeCycle/>, document.getElementById('root'));
+setTimeout(()=>{
+    reactDom.unmountComponentAtNode(document.getElementById('root'));
+}, 10000);
+```
